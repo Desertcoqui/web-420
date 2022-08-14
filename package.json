@@ -1,0 +1,29 @@
+{
+  "name": "web-420",
+  "version": "1.0.0",
+  "description": "web-420 restful API's",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Desertcoqui/web-420.git"
+  },
+  "author": "Ferdinand Detres Jr",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Desertcoqui/web-420/issues"
+  },
+  "homepage": "https://github.com/Desertcoqui/web-420#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  },
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.3",
+    "swagger-jsdoc": "^6.1.0",
+    "swagger-ui-express": "^4.1.6"
+  }
+}
