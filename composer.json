@@ -1,0 +1,25 @@
+{
+  "Composer": {
+    "_id": 10,
+    "firstName": "Slim",
+    "lastName": "Crumb"
+  },
+  "allComposers": [
+    {
+      "_id": 10,
+      "firstName": "Slim",
+      "lastName": "Crumb"
+    },
+    {
+      "_id": 11,
+      "firstName": "Trim",
+      "lastName": "Rice"
+    },
+    {
+      "_id": 12,
+      "firstName": "Bomb",
+      "lastName": "Trick"
+    }
+  ]
+}
+
