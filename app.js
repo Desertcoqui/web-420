@@ -8,21 +8,16 @@
 // -->
 
 const express = require("express");
-// const mongoose = require("mongoose");
 const swaggerUI = require("swagger-ui-express");
 const swagger = require("swagger-jsdoc");
 const http = require("http");
-
+const mongoose = require("mongoose");
+const composerAPI = require("./routes/composer-routes.js");
 // starting express
 const app = express();
 
 //app port set to connect to port 3000
 app.set("port", process.env.PORT || 3000);
-
-app.use(express.urlencoded({ extended: true }));
-
-//express middleware to parse request
-app.use(express.json());
 
 const options = {
   definition: {
@@ -32,11 +27,29 @@ const options = {
       version: "1.0.0",
     },
   },
-  apis: [".routes/*.js"],
+
+  apis: ["./routes/*.js"],
 };
 
 const openapiSpecification = swagger(options);
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(openapiSpecification));
+app.use("/api", composerAPI);
+
+//express middleware to parse request
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
+const mongoDB = "mongodb+srv://web420_user:s3cret@cluster0.xaeddc6.mongodb.net/?retryWrites=true&w=majority";
+
+mongoose.connect(mongoDB);
+mongoose.Promise = global.Promise;
+// Create database variable to hold connections.
+var db = mongoose.connection;
+// Add general error handling. Output results to console.
+db.on("error", console.error.bind(console, "MongoDB connection error"));
+db.once("open", function () {
+  console.log("Application connected to MongoDB instance");
+});
 
 http.createServer(app).listen(app.get("port"), function () {
   console.log(`Application started and listening on port ${app.get("port")}`);
