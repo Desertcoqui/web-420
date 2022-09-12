@@ -12,6 +12,8 @@ const swagger = require("swagger-jsdoc");
 const http = require("http");
 const mongoose = require("mongoose");
 const composerAPI = require("./routes/composer-routes.js");
+const personAPI = require("./routes/person-routes.js");
+
 // starting express
 const app = express();
 
@@ -33,6 +35,7 @@ const options = {
 const openapiSpecification = swagger(options);
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(openapiSpecification));
 app.use("/api", composerAPI);
+app.use("/api", personAPI);
 
 //express middleware to parse request
 app.use(express.json());
