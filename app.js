@@ -13,6 +13,7 @@ const http = require("http");
 const mongoose = require("mongoose");
 const composerAPI = require("./routes/composer-routes.js");
 const personAPI = require("./routes/person-routes.js");
+var customerAPI = require("./routes/node-shopper-routes");
 
 // starting express
 const app = express();
@@ -36,6 +37,7 @@ const openapiSpecification = swagger(options);
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(openapiSpecification));
 app.use("/api", composerAPI);
 app.use("/api", personAPI);
+app.use("/api", customerAPI);
 
 //express middleware to parse request
 app.use(express.json());
