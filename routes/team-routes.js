@@ -9,7 +9,7 @@
 
 const express = require("express");
 const router = express.Router();
-const Team = require("../models/hartung-team");
+const Team = require("../models/team.js");
 
 /**
  * findAllTeams
@@ -28,7 +28,6 @@ const Team = require("../models/hartung-team");
  *       '501':
  *         description: MongoDB Exception.
  */
-
 router.get("/teams", async (req, res) => {
   try {
     Team.find({}, function (err, teams) {
@@ -123,7 +122,6 @@ router.post("/teams/:id/players", async (req, res) => {
     });
   }
 });
-
 /**
  * findAllPlayersByTeamId
  * @openapi
