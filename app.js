@@ -37,7 +37,8 @@ const openapiSpecification = swagger(options);
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(openapiSpecification));
 app.use("/api", composerAPI);
 app.use("/api", personAPI);
-app.use("/api", customerAPI);
+app.use("/api",customerAPI);
+app.use("/api", teamAPI);
 
 //express middleware to parse request
 app.use(express.json());
